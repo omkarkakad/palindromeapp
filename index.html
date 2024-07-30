@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Palindrome App By Omkar </title>
+<style>
+*{font-size:40px;}
+body{background-color:azure;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:30%;border-radius:40px;}
+.btn:hover{color:red;}
+
+</style>
+
+</head>
+<body>
+<center>
+<h1> Palindrome Finder App </h1>
+<form onsubmit="check()">
+<input type="text" placeholder="Enter string" id="str"/>
+<br/><br/>
+<input type="submit" vlaue="Find" class="btn"/>
+
+</form>
+<h2 id="msg"/>
+
+	<script>
+		function check()
+		{
+			event.preventDefault();
+			let str=document.getElementById("str");
+			let msg=document.getElementById("msg");
+		
+			if (str.value==="")
+			{
+				alert("u did not enter the string");
+				msg.innerHTML="";
+				str.focus();
+				return;
+
+			}
+
+			if (str.value.trim()==="")
+			{
+				alert("string cannot be empty");
+				msg.innerHTML="";
+				str.value="";
+				str.focus();
+				return;
+
+			}
+
+			if (!str.value.match("^[A-z]+$"))
+			{
+				alert("string can only have alphabets");
+				msg.innerHTML="";
+				str.value="";
+				str.focus();
+				return;
+
+			}
+
+	
+			let res=""
+			let org_str=str.value.toLowerCase();
+			let rev_str=org_str.split("").reverse().join("");	
+			if (org_str==rev_str)
+				res="Yes the String is palindrome";
+			else
+				res="OOps it is not a Palindrome";
+
+			msg.innerHTML=res;
+
+		}
+
+
+	</script>
+</center>
+
+
+</body>
+
+</html>
